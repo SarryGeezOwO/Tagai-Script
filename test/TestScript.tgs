@@ -1,0 +1,6 @@
+// Testing various shit
+print("Hello world", 6925);
+
+if !59.25 < 5 {
+	return true;
+}

@@ -6,6 +6,7 @@ import (
 	"bufio"
 	"path/filepath"
 	syn "tagai-script/syntax"
+	er "tagai-script/error"
 )
 
 func main() {
@@ -66,6 +67,10 @@ func Run(source string) {
 	tokens := syn.Tokenize(source)
 
 	for _, token := range tokens {
-		fmt.Println("Line:", token.Line, "Type:", token.Type, token.Literal)
+		fmt.Println("Line:", token.Line, "Type:", token.Type, token.Lexeme, token.Literal)
+	}
+
+	if er.ErrorPresent {
+		fmt.Println("Error occured, evaluation stopped.")
 	}
 }
